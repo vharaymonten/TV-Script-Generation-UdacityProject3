@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>dlnd_tv_script_generation</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>dlnd_tv_script_generation </title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11771,26 +11771,12 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="TV-Script-Generation">TV Script Generation<a class="anchor-link" href="#TV-Script-Generation">&#182;</a></h1><p>In this project, you'll generate your own <a href="https://en.wikipedia.org/wiki/The_Simpsons">Simpsons</a> TV scripts using RNNs.  You'll be using part of the <a href="https://www.kaggle.com/wcukierski/the-simpsons-by-the-data">Simpsons dataset</a> of scripts from 27 seasons.  The Neural Network you'll build will generate a new TV script for a scene at <a href="https://simpsonswiki.com/wiki/Moe&#39;s_Tavern">Moe's Tavern</a>.</p>
-<h2 id="Get-the-Data">Get the Data<a class="anchor-link" href="#Get-the-Data">&#182;</a></h2><p>The data is already provided for you.  You'll be using a subset of the original dataset.  It consists of only the scenes in Moe's Tavern.  This doesn't include other versions of the tavern, like "Moe's Cavern", "Flaming Moe's", "Uncle Moe's Family Feed-Bag", etc..</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">helper</span>
-
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">helper</span>
 <span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;./data/simpsons/moes_tavern_lines.txt&#39;</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
 <span class="c1"># Ignore notice, since we don&#39;t use it for analysing the data</span>
@@ -11802,15 +11788,6 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Explore-the-Data">Explore the Data<a class="anchor-link" href="#Explore-the-Data">&#182;</a></h2><p>Play around with <code>view_sentence_range</code> to view different parts of the data.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
@@ -11818,9 +11795,6 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">view_sentence_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dataset Stats&#39;</span><span class="p">)</span>
@@ -11857,11 +11831,12 @@ div#notebook {
 <pre>Dataset Stats
 Roughly the number of unique words: 11492
 Number of scenes: 262
-Average number of sentences in each scene: 15.248091603053435
-Number of lines: 4257
-Average number of words in each line: 11.50434578341555
+Average number of sentences in each scene: 15.251908396946565
+Number of lines: 4258
+Average number of words in each line: 11.50164396430249
 
 The sentences 0 to 10:
+
 Moe_Szyslak: (INTO PHONE) Moe&#39;s Tavern. Where the elite meet to drink.
 Bart_Simpson: Eh, yeah, hello, is Mike there? Last name, Rotch.
 Moe_Szyslak: (INTO PHONE) Hold on, I&#39;ll check. (TO BARFLIES) Mike Rotch. Mike Rotch. Hey, has anybody seen Mike Rotch, lately?
@@ -11871,7 +11846,6 @@ Homer_Simpson: I got my problems, Moe. Give me another one.
 Moe_Szyslak: Homer, hey, you should not drink to forget your problems.
 Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 
-
 </pre>
 </div>
 </div>
@@ -11879,25 +11853,6 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Implement-Preprocessing-Functions">Implement Preprocessing Functions<a class="anchor-link" href="#Implement-Preprocessing-Functions">&#182;</a></h2><p>The first thing to do to any dataset is preprocessing.  Implement the following preprocessing functions below:</p>
-<ul>
-<li>Lookup Table</li>
-<li>Tokenize Punctuation</li>
-</ul>
-<h3 id="Lookup-Table">Lookup Table<a class="anchor-link" href="#Lookup-Table">&#182;</a></h3><p>To create a word embedding, you first need to transform the words to ids.  In this function, create two dictionaries:</p>
-<ul>
-<li>Dictionary to go from the words to an id, we'll call <code>vocab_to_int</code></li>
-<li>Dictionary to go from the id to word, we'll call <code>int_to_vocab</code></li>
-</ul>
-<p>Return these dictionaries in the following tuple <code>(vocab_to_int, int_to_vocab)</code></p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -11922,9 +11877,6 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
     <span class="k">return</span> <span class="n">vocab_to_int</span><span class="p">,</span> <span class="n">int_to_vocab</span>
 
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_create_lookup_tables</span><span class="p">(</span><span class="n">create_lookup_tables</span><span class="p">)</span>
 </pre></div>
 
@@ -11941,8 +11893,23 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <div class="prompt"></div>
 
 
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>c:\program files\python35\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Tests Passed
+<pre>WARNING:tensorflow:From c:\program files\python35\lib\site-packages\tensorflow\contrib\learn\python\learn\datasets\base.py:198: retry (from tensorflow.contrib.learn.python.learn.datasets.base) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use the retry module or similar alternatives.
+Tests Passed
 </pre>
 </div>
 </div>
@@ -11996,9 +11963,7 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
                   <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span><span class="s1">&#39;||Return||&#39;</span><span class="p">}</span>    <span class="c1"># TODO: Implement Function</span>
     <span class="k">return</span> <span class="n">punctuation</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
+
 <span class="n">tests</span><span class="o">.</span><span class="n">test_tokenize</span><span class="p">(</span><span class="n">token_lookup</span><span class="p">)</span>
 </pre></div>
 
@@ -12039,10 +12004,7 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># Preprocess Training, Validation, and Testing Data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Preprocess Training, Validation, and Testing Data</span>
 <span class="n">helper</span><span class="o">.</span><span class="n">preprocess_and_save_data</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">token_lookup</span><span class="p">,</span> <span class="n">create_lookup_tables</span><span class="p">)</span>
 </pre></div>
 
@@ -12065,10 +12027,7 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">helper</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">helper</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="k">as</span> <span class="nn">tests</span>
 
@@ -12080,32 +12039,12 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Build-the-Neural-Network">Build the Neural Network<a class="anchor-link" href="#Build-the-Neural-Network">&#182;</a></h2><p>You'll build the components necessary to build a RNN by implementing the following functions below:</p>
-<ul>
-<li>get_inputs</li>
-<li>get_init_cell</li>
-<li>get_embed</li>
-<li>build_rnn</li>
-<li>build_nn</li>
-<li>get_batches</li>
-</ul>
-<h3 id="Check-the-Version-of-TensorFlow-and-Access-to-GPU">Check the Version of TensorFlow and Access to GPU<a class="anchor-link" href="#Check-the-Version-of-TensorFlow-and-Access-to-GPU">&#182;</a></h3>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">LooseVersion</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.version</span> <span class="k">import</span> <span class="n">LooseVersion</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
@@ -12134,8 +12073,8 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>TensorFlow Version: 1.3.0
-Default GPU Device: /gpu:0
+<pre>TensorFlow Version: 1.7.0
+Default GPU Device: /device:GPU:0
 </pre>
 </div>
 </div>
@@ -12143,21 +12082,6 @@ Default GPU Device: /gpu:0
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Input">Input<a class="anchor-link" href="#Input">&#182;</a></h3><p>Implement the <code>get_inputs()</code> function to create TF Placeholders for the Neural Network.  It should create the following placeholders:</p>
-<ul>
-<li>Input text placeholder named "input" using the <a href="https://www.tensorflow.org/api_docs/python/tf/placeholder">TF Placeholder</a> <code>name</code> parameter.</li>
-<li>Targets placeholder</li>
-<li>Learning Rate placeholder</li>
-</ul>
-<p>Return the placeholders in the following tuple <code>(Input, Targets, LearningRate)</code></p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12175,10 +12099,6 @@ Default GPU Device: /gpu:0
     <span class="c1"># TODO: Implement Function</span>
     <span class="k">return</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">learning_rate</span>
 
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_get_inputs</span><span class="p">(</span><span class="n">get_inputs</span><span class="p">)</span>
 </pre></div>
 
@@ -12245,9 +12165,6 @@ Default GPU Device: /gpu:0
     <span class="k">return</span> <span class="n">cells</span><span class="p">,</span> <span class="n">initial_state</span>
 
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_get_init_cell</span><span class="p">(</span><span class="n">get_init_cell</span><span class="p">)</span>
 </pre></div>
 
@@ -12302,9 +12219,7 @@ Default GPU Device: /gpu:0
     <span class="k">return</span> <span class="n">embed</span>
 
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
+
 <span class="n">tests</span><span class="o">.</span><span class="n">test_get_embed</span><span class="p">(</span><span class="n">get_embed</span><span class="p">)</span>
 </pre></div>
 
@@ -12331,22 +12246,6 @@ Default GPU Device: /gpu:0
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Build-RNN">Build RNN<a class="anchor-link" href="#Build-RNN">&#182;</a></h3><p>You created a RNN Cell in the <code>get_init_cell()</code> function.  Time to use the cell to create a RNN.</p>
-<ul>
-<li>Build the RNN using the <a href="https://www.tensorflow.org/api_docs/python/tf/nn/dynamic_rnn"><code>tf.nn.dynamic_rnn()</code></a><ul>
-<li>Apply the name "final_state" to the final state using <a href="https://www.tensorflow.org/api_docs/python/tf/identity"><code>tf.identity()</code></a></li>
-</ul>
-</li>
-</ul>
-<p>Return the outputs and final_state state in the following tuple <code>(Outputs, FinalState)</code></p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
@@ -12364,10 +12263,6 @@ Default GPU Device: /gpu:0
     <span class="n">final_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">final_state</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;final_state&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">final_state</span>
 
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_build_rnn</span><span class="p">(</span><span class="n">build_rnn</span><span class="p">)</span>
 </pre></div>
 
@@ -12394,21 +12289,6 @@ Default GPU Device: /gpu:0
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Build-the-Neural-Network">Build the Neural Network<a class="anchor-link" href="#Build-the-Neural-Network">&#182;</a></h3><p>Apply the functions you implemented above to:</p>
-<ul>
-<li>Apply embedding to <code>input_data</code> using your <code>get_embed(input_data, vocab_size, embed_dim)</code> function.</li>
-<li>Build RNN using <code>cell</code> and your <code>build_rnn(cell, inputs)</code> function.</li>
-<li>Apply a fully connected layer with a linear activation and <code>vocab_size</code> as the number of outputs.</li>
-</ul>
-<p>Return the logits and final state in the following tuple (Logits, FinalState)</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
@@ -12431,9 +12311,6 @@ Default GPU Device: /gpu:0
     <span class="k">return</span> <span class="n">logits</span><span class="p">,</span> <span class="n">final_state</span>
 
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_build_nn</span><span class="p">(</span><span class="n">build_nn</span><span class="p">)</span>
 </pre></div>
 
@@ -12460,48 +12337,6 @@ Default GPU Device: /gpu:0
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Batches">Batches<a class="anchor-link" href="#Batches">&#182;</a></h3><p>Implement <code>get_batches</code> to create batches of input and targets using <code>int_text</code>.  The batches should be a Numpy array with the shape <code>(number of batches, 2, batch size, sequence length)</code>. Each batch contains two elements:</p>
-<ul>
-<li>The first element is a single batch of <strong>input</strong> with the shape <code>[batch size, sequence length]</code></li>
-<li>The second element is a single batch of <strong>targets</strong> with the shape <code>[batch size, sequence length]</code></li>
-</ul>
-<p>If you can't fill the last batch with enough data, drop the last batch.</p>
-<p>For example, <code>get_batches([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 3, 2)</code> would return a Numpy array of the following:</p>
-
-<pre><code>[
-  # First Batch
-  [
-    # Batch of Input
-    [[ 1  2], [ 7  8], [13 14]]
-    # Batch of targets
-    [[ 2  3], [ 8  9], [14 15]]
-  ]
-
-  # Second Batch
-  [
-    # Batch of Input
-    [[ 3  4], [ 9 10], [15 16]]
-    # Batch of targets
-    [[ 4  5], [10 11], [16 17]]
-  ]
-
-  # Third Batch
-  [
-    # Batch of Input
-    [[ 5  6], [11 12], [17 18]]
-    # Batch of targets
-    [[ 6  7], [12 13], [18  1]]
-  ]
-]</code></pre>
-<p>Notice that the last target value in the last batch is the first input value of the first batch. In this case, <code>1</code>. This is a common technique used when creating sequence batches, although it is rather unintuitive.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
@@ -12522,68 +12357,21 @@ Default GPU Device: /gpu:0
     <span class="n">int_text</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">int_text</span><span class="p">)</span>
     
     <span class="n">int_text</span> <span class="o">=</span> <span class="n">int_text</span><span class="p">[:</span><span class="n">n_batches</span><span class="o">*</span><span class="n">word_per_batch</span><span class="p">]</span>
-    <span class="n">int_text_shifted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">int_text</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>    
-    <span class="n">X</span> <span class="o">=</span> <span class="n">int_text</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">int_text_shifted</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">int_text_shifted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">int_text</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     
-    <span class="n">num_batches</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">seq_length</span><span class="p">):</span>
-        <span class="n">batches</span><span class="p">[</span><span class="n">num_batches</span><span class="p">,</span> <span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="n">ii</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="n">seq_length</span><span class="p">]</span>
-        <span class="n">batches</span><span class="p">[</span><span class="n">num_batches</span><span class="p">,</span> <span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:,</span><span class="n">ii</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="n">seq_length</span><span class="p">]</span>
-        <span class="n">num_batches</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">num_batches</span> <span class="o">==</span> <span class="n">n_batches</span><span class="p">:</span>
-            <span class="k">break</span>
-        
-    <span class="k">return</span> <span class="n">batches</span>
-                          
-        
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="n">tests</span><span class="o">.</span><span class="n">test_get_batches</span><span class="p">(</span><span class="n">get_batches</span><span class="p">)</span>
+    <span class="n">xdata</span> <span class="o">=</span> <span class="n">int_text</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ydata</span> <span class="o">=</span> <span class="n">int_text_shifted</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">xbatches</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">n_batches</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ybatches</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">n_batches</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">xbatches</span><span class="p">,</span> <span class="n">ybatches</span><span class="p">)))</span>
+                    
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Tests Passed
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Neural-Network-Training">Neural Network Training<a class="anchor-link" href="#Neural-Network-Training">&#182;</a></h2><h3 id="Hyperparameters">Hyperparameters<a class="anchor-link" href="#Hyperparameters">&#182;</a></h3><p>Tune the following parameters:</p>
-<ul>
-<li>Set <code>num_epochs</code> to the number of epochs.</li>
-<li>Set <code>batch_size</code> to the batch size.</li>
-<li>Set <code>rnn_size</code> to the size of the RNNs.</li>
-<li>Set <code>embed_dim</code> to the size of the embedding.</li>
-<li>Set <code>seq_length</code> to the length of sequence.</li>
-<li>Set <code>learning_rate</code> to the learning rate.</li>
-<li>Set <code>show_every_n_batches</code> to the number of batches the neural network should print progress.</li>
-</ul>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12605,9 +12393,7 @@ Default GPU Device: /gpu:0
 <span class="c1"># Show stats for every n number of batches</span>
 <span class="n">show_every_n_batches</span> <span class="o">=</span> <span class="mi">32</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE```````````</span>
-<span class="sd">&quot;&quot;&quot;</span>
+
 <span class="n">save_dir</span> <span class="o">=</span> <span class="s1">&#39;./save&#39;</span>
 </pre></div>
 
@@ -12680,10 +12466,7 @@ Default GPU Device: /gpu:0
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="n">batches</span> <span class="o">=</span> <span class="n">get_batches</span><span class="p">(</span><span class="n">int_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">batches</span> <span class="o">=</span> <span class="n">get_batches</span><span class="p">(</span><span class="n">int_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">train_graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
     <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">())</span>
@@ -12730,87 +12513,87 @@ Default GPU Device: /gpu:0
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch   0 Batch    0/26   train_loss = 8.822
-Epoch   1 Batch    6/26   train_loss = 5.682
-Epoch   2 Batch   12/26   train_loss = 5.315
-Epoch   3 Batch   18/26   train_loss = 4.830
-Epoch   4 Batch   24/26   train_loss = 4.636
-Epoch   6 Batch    4/26   train_loss = 4.477
-Epoch   7 Batch   10/26   train_loss = 4.299
-Epoch   8 Batch   16/26   train_loss = 4.219
-Epoch   9 Batch   22/26   train_loss = 3.945
-Epoch  11 Batch    2/26   train_loss = 3.993
-Epoch  12 Batch    8/26   train_loss = 3.985
-Epoch  13 Batch   14/26   train_loss = 3.758
-Epoch  14 Batch   20/26   train_loss = 3.492
-Epoch  16 Batch    0/26   train_loss = 3.501
-Epoch  17 Batch    6/26   train_loss = 3.534
-Epoch  18 Batch   12/26   train_loss = 3.556
-Epoch  19 Batch   18/26   train_loss = 3.325
-Epoch  20 Batch   24/26   train_loss = 3.033
-Epoch  22 Batch    4/26   train_loss = 3.074
-Epoch  23 Batch   10/26   train_loss = 2.900
-Epoch  24 Batch   16/26   train_loss = 2.649
-Epoch  25 Batch   22/26   train_loss = 2.542
-Epoch  27 Batch    2/26   train_loss = 2.550
-Epoch  28 Batch    8/26   train_loss = 2.329
-Epoch  29 Batch   14/26   train_loss = 2.169
-Epoch  30 Batch   20/26   train_loss = 1.991
-Epoch  32 Batch    0/26   train_loss = 2.057
-Epoch  33 Batch    6/26   train_loss = 1.944
-Epoch  34 Batch   12/26   train_loss = 1.835
-Epoch  35 Batch   18/26   train_loss = 1.718
-Epoch  36 Batch   24/26   train_loss = 1.500
-Epoch  38 Batch    4/26   train_loss = 1.588
-Epoch  39 Batch   10/26   train_loss = 1.532
-Epoch  40 Batch   16/26   train_loss = 1.468
-Epoch  41 Batch   22/26   train_loss = 1.394
-Epoch  43 Batch    2/26   train_loss = 1.352
-Epoch  44 Batch    8/26   train_loss = 1.224
-Epoch  45 Batch   14/26   train_loss = 1.180
-Epoch  46 Batch   20/26   train_loss = 1.062
-Epoch  48 Batch    0/26   train_loss = 1.071
-Epoch  49 Batch    6/26   train_loss = 0.976
-Epoch  50 Batch   12/26   train_loss = 0.868
-Epoch  51 Batch   18/26   train_loss = 0.885
-Epoch  52 Batch   24/26   train_loss = 0.738
-Epoch  54 Batch    4/26   train_loss = 0.775
-Epoch  55 Batch   10/26   train_loss = 0.748
-Epoch  56 Batch   16/26   train_loss = 0.678
-Epoch  57 Batch   22/26   train_loss = 0.648
-Epoch  59 Batch    2/26   train_loss = 0.664
-Epoch  60 Batch    8/26   train_loss = 0.592
-Epoch  61 Batch   14/26   train_loss = 0.542
-Epoch  62 Batch   20/26   train_loss = 0.531
-Epoch  64 Batch    0/26   train_loss = 0.576
-Epoch  65 Batch    6/26   train_loss = 0.496
-Epoch  66 Batch   12/26   train_loss = 0.460
-Epoch  67 Batch   18/26   train_loss = 0.487
-Epoch  68 Batch   24/26   train_loss = 0.411
-Epoch  70 Batch    4/26   train_loss = 0.436
-Epoch  71 Batch   10/26   train_loss = 0.415
-Epoch  72 Batch   16/26   train_loss = 0.390
-Epoch  73 Batch   22/26   train_loss = 0.353
-Epoch  75 Batch    2/26   train_loss = 0.325
-Epoch  76 Batch    8/26   train_loss = 0.304
-Epoch  77 Batch   14/26   train_loss = 0.267
-Epoch  78 Batch   20/26   train_loss = 0.245
-Epoch  80 Batch    0/26   train_loss = 0.235
-Epoch  81 Batch    6/26   train_loss = 0.205
-Epoch  82 Batch   12/26   train_loss = 0.184
-Epoch  83 Batch   18/26   train_loss = 0.183
-Epoch  84 Batch   24/26   train_loss = 0.158
-Epoch  86 Batch    4/26   train_loss = 0.166
-Epoch  87 Batch   10/26   train_loss = 0.189
-Epoch  88 Batch   16/26   train_loss = 0.180
-Epoch  89 Batch   22/26   train_loss = 0.172
-Epoch  91 Batch    2/26   train_loss = 0.166
-Epoch  92 Batch    8/26   train_loss = 0.160
-Epoch  93 Batch   14/26   train_loss = 0.162
-Epoch  94 Batch   20/26   train_loss = 0.160
-Epoch  96 Batch    0/26   train_loss = 0.156
-Epoch  97 Batch    6/26   train_loss = 0.156
-Epoch  98 Batch   12/26   train_loss = 0.148
-Epoch  99 Batch   18/26   train_loss = 0.153
+Epoch   1 Batch    6/26   train_loss = 5.706
+Epoch   2 Batch   12/26   train_loss = 5.354
+Epoch   3 Batch   18/26   train_loss = 4.837
+Epoch   4 Batch   24/26   train_loss = 4.671
+Epoch   6 Batch    4/26   train_loss = 4.508
+Epoch   7 Batch   10/26   train_loss = 4.317
+Epoch   8 Batch   16/26   train_loss = 4.177
+Epoch   9 Batch   22/26   train_loss = 3.921
+Epoch  11 Batch    2/26   train_loss = 3.846
+Epoch  12 Batch    8/26   train_loss = 3.754
+Epoch  13 Batch   14/26   train_loss = 3.610
+Epoch  14 Batch   20/26   train_loss = 3.508
+Epoch  16 Batch    0/26   train_loss = 3.476
+Epoch  17 Batch    6/26   train_loss = 3.442
+Epoch  18 Batch   12/26   train_loss = 3.387
+Epoch  19 Batch   18/26   train_loss = 3.074
+Epoch  20 Batch   24/26   train_loss = 2.912
+Epoch  22 Batch    4/26   train_loss = 2.942
+Epoch  23 Batch   10/26   train_loss = 2.715
+Epoch  24 Batch   16/26   train_loss = 2.516
+Epoch  25 Batch   22/26   train_loss = 2.341
+Epoch  27 Batch    2/26   train_loss = 2.413
+Epoch  28 Batch    8/26   train_loss = 2.139
+Epoch  29 Batch   14/26   train_loss = 2.092
+Epoch  30 Batch   20/26   train_loss = 1.944
+Epoch  32 Batch    0/26   train_loss = 1.903
+Epoch  33 Batch    6/26   train_loss = 1.853
+Epoch  34 Batch   12/26   train_loss = 1.799
+Epoch  35 Batch   18/26   train_loss = 1.701
+Epoch  36 Batch   24/26   train_loss = 1.544
+Epoch  38 Batch    4/26   train_loss = 1.623
+Epoch  39 Batch   10/26   train_loss = 1.504
+Epoch  40 Batch   16/26   train_loss = 1.432
+Epoch  41 Batch   22/26   train_loss = 1.302
+Epoch  43 Batch    2/26   train_loss = 1.354
+Epoch  44 Batch    8/26   train_loss = 1.128
+Epoch  45 Batch   14/26   train_loss = 1.049
+Epoch  46 Batch   20/26   train_loss = 0.984
+Epoch  48 Batch    0/26   train_loss = 0.974
+Epoch  49 Batch    6/26   train_loss = 0.883
+Epoch  50 Batch   12/26   train_loss = 0.822
+Epoch  51 Batch   18/26   train_loss = 0.773
+Epoch  52 Batch   24/26   train_loss = 0.680
+Epoch  54 Batch    4/26   train_loss = 0.770
+Epoch  55 Batch   10/26   train_loss = 0.681
+Epoch  56 Batch   16/26   train_loss = 0.671
+Epoch  57 Batch   22/26   train_loss = 0.606
+Epoch  59 Batch    2/26   train_loss = 0.589
+Epoch  60 Batch    8/26   train_loss = 0.480
+Epoch  61 Batch   14/26   train_loss = 0.488
+Epoch  62 Batch   20/26   train_loss = 0.465
+Epoch  64 Batch    0/26   train_loss = 0.438
+Epoch  65 Batch    6/26   train_loss = 0.431
+Epoch  66 Batch   12/26   train_loss = 0.380
+Epoch  67 Batch   18/26   train_loss = 0.377
+Epoch  68 Batch   24/26   train_loss = 0.359
+Epoch  70 Batch    4/26   train_loss = 0.390
+Epoch  71 Batch   10/26   train_loss = 0.354
+Epoch  72 Batch   16/26   train_loss = 0.336
+Epoch  73 Batch   22/26   train_loss = 0.290
+Epoch  75 Batch    2/26   train_loss = 0.296
+Epoch  76 Batch    8/26   train_loss = 0.234
+Epoch  77 Batch   14/26   train_loss = 0.242
+Epoch  78 Batch   20/26   train_loss = 0.210
+Epoch  80 Batch    0/26   train_loss = 0.217
+Epoch  81 Batch    6/26   train_loss = 0.211
+Epoch  82 Batch   12/26   train_loss = 0.196
+Epoch  83 Batch   18/26   train_loss = 0.197
+Epoch  84 Batch   24/26   train_loss = 0.182
+Epoch  86 Batch    4/26   train_loss = 0.196
+Epoch  87 Batch   10/26   train_loss = 0.174
+Epoch  88 Batch   16/26   train_loss = 0.178
+Epoch  89 Batch   22/26   train_loss = 0.162
+Epoch  91 Batch    2/26   train_loss = 0.176
+Epoch  92 Batch    8/26   train_loss = 0.148
+Epoch  93 Batch   14/26   train_loss = 0.173
+Epoch  94 Batch   20/26   train_loss = 0.157
+Epoch  96 Batch    0/26   train_loss = 0.160
+Epoch  97 Batch    6/26   train_loss = 0.163
+Epoch  98 Batch   12/26   train_loss = 0.158
+Epoch  99 Batch   18/26   train_loss = 0.159
 Model Trained and Saved
 </pre>
 </div>
@@ -12834,10 +12617,7 @@ Model Trained and Saved
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># Save parameters for checkpoint</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save parameters for checkpoint</span>
 <span class="n">helper</span><span class="o">.</span><span class="n">save_params</span><span class="p">((</span><span class="n">seq_length</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">))</span>
 </pre></div>
 
@@ -12859,10 +12639,7 @@ Model Trained and Saved
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">helper</span>
 <span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="k">as</span> <span class="nn">tests</span>
@@ -12875,22 +12652,6 @@ Model Trained and Saved
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Implement-Generate-Functions">Implement Generate Functions<a class="anchor-link" href="#Implement-Generate-Functions">&#182;</a></h2><h3 id="Get-Tensors">Get Tensors<a class="anchor-link" href="#Get-Tensors">&#182;</a></h3><p>Get tensors from <code>loaded_graph</code> using the function <a href="https://www.tensorflow.org/api_docs/python/tf/Graph#get_tensor_by_name"><code>get_tensor_by_name()</code></a>.  Get the tensors using the following names:</p>
-<ul>
-<li>"input:0"</li>
-<li>"initial_state:0"</li>
-<li>"final_state:0"</li>
-<li>"probs:0"</li>
-</ul>
-<p>Return the tensors in the following tuple <code>(InputTensor, InitialStateTensor, FinalStateTensor, ProbsTensor)</code></p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12911,9 +12672,6 @@ Model Trained and Saved
     <span class="k">return</span> <span class="n">input_</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">,</span> <span class="n">final_state</span><span class="p">,</span> <span class="n">probs</span>
 
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_get_tensors</span><span class="p">(</span><span class="n">get_tensors</span><span class="p">)</span>
 </pre></div>
 
@@ -12967,9 +12725,6 @@ Model Trained and Saved
     <span class="k">return</span> <span class="n">pred</span>
 
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_pick_word</span><span class="p">(</span><span class="n">pick_word</span><span class="p">)</span>
 </pre></div>
 
@@ -13014,9 +12769,6 @@ Model Trained and Saved
 <span class="c1"># homer_simpson, moe_szyslak, or Barney_Gumble</span>
 <span class="n">prime_word</span> <span class="o">=</span> <span class="s1">&#39;moe_szyslak&#39;</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">loaded_graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">loaded_graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
     <span class="c1"># Load saved model</span>
@@ -13071,83 +12823,80 @@ Model Trained and Saved
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>INFO:tensorflow:Restoring parameters from ./save
-moe_szyslak:(into phone) gotcha ya down for forty bucks. good luck your eminence.
-moe_szyslak: sorry, homer.
-homer_simpson: hey, i&#39;ve been lookin&#39; out for me!
-homer_simpson:(inanely) oh, that. he is.
-moe_szyslak: hey, what is that?
-homer_simpson: you know, i love your passion. it&#39;s terrific, it&#39;s really as a love life of the hospital.
-moe_szyslak: that was my c. smithers!
-homer_simpson: moe, what do you want to think you ain&#39;t been in this bar since they enveloped me.
-homer_simpson:(anguished) oh no, he stepped on the table.(then) woo hoo?(disapproving sound) that is so rude.(moans) i know, it&#39;s so stupid. and now lenny.
+moe_szyslak:(delighted) ooh, a text.(checks phone) let&#39;s see... text message for the bow!
+homer_simpson:(re: tap) hmm. this is i know!
 
 
-homer_simpson:(looking around) wh...(third head) kill someone she never did.
+homer_simpson: moe, this is a good life, but thank god you&#39;re back to let you look good?
 
 
-homer_simpson:(looking up) homer, that japanese puzzle in homer&#39;s beloved. the drummer from from fifty bucks!
-moe_szyslak: yeah, well, i got to let homer down, homer. you&#39;re talkin&#39; to, but it was worth nothin&#39;...
-homer_simpson: say you think my mom was hit with a gag?
-bender:(to camera) hey, you&#39;re right.
-homer_simpson:(morose) yeah, i don&#39;t know.
-carl_carlson: i with it.
-homer_simpson:(gasp) right away, but i don&#39;t need to feed you.
-barney_gumble: aw, that&#39;s uh, that&#39;s uh, for all you know how to make you do to get the money.
-homer_simpson: i&#39;m here protecting our graves. i still got mine.
-homer_simpson:(considers it) don&#39;t you hate pants?
-lenny_leonard: that&#39;s alright, make it flat-- the bubbles burn my own private police force.&#34;
-homer_simpson:(looking up) aw, wait a minute.?.(sips beer)
+homer_simpson: how long they got an enemy. me, i&#39;ll check.(to self) someone&#39;s lookin&#39; at a snake in the time.
+homer_simpson: i mean. i was all the world&#39;s driver?
+marge_simpson: i got a little early before you were going to las the way.
+homer_simpson:(reading) just do all be some high school...
+homer_simpson:(tough) all right, tap jockey, you all have. i&#39;ll let you think this guy.
+moe_szyslak:(laughs) he&#39;d be all&#34; that i will you are.
+moe_szyslak: sorry, okay. i was looking around to the pool table... homer, say hi to the waterfront and you&#34; / just since i see me?
+homer_simpson: sorry.
+jacques: may i was made in the world&#39;s biggest want off with you.
+moe_szyslak:(sigh) well, i had a thing going.
+seymour_skinner: really?
+moe_szyslak: i can&#39;t close this joint on the back of my life.
+homer_simpson:(short voice) you gotta be the sweet, but i ruined me.
+moe_szyslak: i like it.
+homer_simpson: you know, i heard of a--
+moe_szyslak: ooh, ooh, it&#39;s eleven at night.
+chief_wiggum:(under his head) you&#39;re gonna help you know.
+homer_simpson: listen to &#39;em.
+moe_szyslak: i was just the time. couldn&#39;t you join me?
+moe_szyslak: i&#39;m a going to keep our fridge in the morning. i promise.
+homer_simpson: hey moe, i have to keep my life.
+moe_szyslak: shut up.
+lenny_leonard: it&#39;s like i&#39;m a million bucks. i have a couch. but don&#39;t be no hero(belch)
+homer_simpson: no.
+moe_szyslak: see, i don&#39;t want to open my own dreams and i was not in the game. he&#39;s a problem. if you gonna be so helpless! just a real friend?
+homer_simpson:(contented confused) homer, how many people is a great...
 
 
-homer_simpson: well, i&#39;m gonna need you to have your badges.(looking around) um, no.
-homer_simpson:(sighs) yeah, i only serve beer on the world.
+moe_szyslak: really?(looking around) um...(stagy) hey everyone, homer!(homer&#39;s voice) i got the best friend?
+homer_simpson: marge, like, you can pour it yourself.
+homer_simpson: i had a new one have brothers with a million one before i mean to the drunk. and then no one ever will help you a son!
+carl_carlson: with my love who was a better but of course there, homer&#39;s...
+moe_szyslak: hey, you can pour it in the back room...(considering) well, joey, i have been fun.
+moe_szyslak: yeah, well, you can follow this.
+homer_simpson:(taunting) check that ruby-studded clown!
+ned_flanders: i dunno, homer. you see all the right, or that down deep was&#34; finding nemo&#34; the wire.&#34;
+homer_simpson: from moe, a thing in the time.
+moe_szyslak: i guess you take that back.
+homer_simpson: guys, i want you to... life-sized.
+lenny_leonard: can i have a computer?
+barney_gumble: okay.
+bender: and the be sharps.
+grampa_simpson: so we are all the loser behind a big friend!
+moe_szyslak: with the trolls?
+moe_szyslak: yeah, let&#39;s see your job?
+moe_szyslak: and i guess you&#39;ll be in the way back in this bar.
+homer_simpson: wow. i&#39;ve got a date with my show.
+homer_simpson: i got just a party at bleeding gums murphy&#39;s house.
+homer_simpson: woo hoo! an unattended head) i&#39;ve been song if you just been having my plant.
+homer_simpson:(quiet) yeah. no one&#39;s ever been us a good man.
+moe_szyslak: yeah, i know a thing or two about i know.
+homer_simpson: you can&#39;t close! i&#39;ll have to go back to one.
+homer_simpson: and callin&#39; him a eyes, sir. goodnight owns the springfield from twenty.
+homer_simpson: man, moe, you sure it, moe. i lost the hell&#39;s down there.
+moe_szyslak: well, if it isn&#39;t little bart.(sighs) i must be that letter...
+homer_simpson: moe, i wanna go to a first kids.
+homer_simpson:(to little tipsy) yesterday&#39;s whatsit? why i been springfield walk on their school...
+apu_nahasapeemapetilon: i see.
+moe_szyslak: hey, well, i was thinking more like drapes and a paint.
+homer_simpson:(loud) achem!
 
 
-homer_simpson: moe, if you&#39;re single you can take the money all day. not barney, are you man enough to throw a&#34; flaming moe&#34;.
-homer_simpson: i&#39;m a man who doesn&#39;t with moe&#39;s back with the therapist, after this...(bitter) unlike me...(quickly) one hell...(bitter) unlike me...
-homer_simpson:(brightening) that&#39;s a japanese ride clothes.(english eyes, homer&#39;s sits! i&#39;m outta here!
-moe_szyslak: yeah, good for you, homer, don&#39;t want to do this out.
-lenny_leonard:(to bears) all right, take it easy on me. but i couldn&#39;t help me the new life...(looks at her ball)...(realizing) hey, i don&#39;t want to find out.
-bart_simpson: it&#39;s for homer, you&#39;ve been a real crank lately.
-carl_carlson: yeah, i was thinking more on my problems. hope you make me!
-
-
-moe_szyslak: hey, this is...(indignant) i will be the last day of a gag name:&#34; now i guess i can.
-comic_book_guy: barney, are you. you&#39;ve got your money, homer.
-moe_szyslak: i&#39;m gonna be big feeling that can make you look good.
-marge_simpson: i got these happier now much.
-homer_simpson: i already got here!
-homer_simpson: oh yeah? it&#39;s not so fast.
-homer_simpson:(sunk) i dunno.
-
-
-moe_szyslak:(excited) oh, right.
-homer_simpson: is that i, ah, you want to be the keys?
-homer_simpson: wow. i&#39;ve got any money.
-moe_szyslak: shut up and hand me when i couldn&#39;t seen you in?
-moe_szyslak: oh my god, this is my manager.
-homer_simpson: moe, the boy is over!
-homer_simpson:(pointed) ahem!
-lenny_leonard:(shrugging) eh, well, ya all you,(small laugh) yeah, i knew this place is always a guy with this tape.
-
-
-homer_simpson: hey, you can&#39;t take us home...
-chief_wiggum: don&#39;t relax! don&#39;t relax! don&#39;t relax!
-
-
-moe_szyslak: moe!(off the camera) i guess every voice.
-homer_simpson: i got a lot of catching up to do.
-moe_szyslak: hey, homer, i feel like nothin&#39;.
-homer_simpson: geez, i was thinking all day. you can forget everything they said.
-homer_simpson:(sunk) i dunno.
-
-
-homer_simpson:... so i don&#39;t remember?
-dr. _zander: bart.
-homer_simpson:(inanely) ah, this is why i don&#39;t want to find the fish, who knew he never--(shaken)&#34; african princess... well, i fell in love with the therapist, after they came to the same species?
-moe_szyslak: well, moe, this guy paints his fictional side of the summer, and(maitre old quotes) heh? well i&#39;m sixty-nine, wow?
-homer_simpson: whatever.
-moe_szyslak: ah, you got it. / i don&#39;t know why i&#39;m so stupid
+moe_szyslak:(sobs) oh, what happened to you. when i do, when you get a little man that i been happy yet.
+barney_gumble: moe? how &#39;bout this?
+carl_carlson: hey, sounds like a certain town, a guy would get these house.(laughs) great prank, fellas. you should get us up the way.
+homer_simpson:(eager) i guess i can take this back.
+moe_szyslak:(lowering shotgun) take
 </pre>
 </div>
 </div>
@@ -13155,16 +12904,6 @@ moe_szyslak: ah, you got it. / i don&#39;t know why i&#39;m so stupid
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-TV-Script-is-Nonsensical">The TV Script is Nonsensical<a class="anchor-link" href="#The-TV-Script-is-Nonsensical">&#182;</a></h1><p>It's ok if the TV script doesn't make any sense.  We trained on less than a megabyte of text.  In order to get good results, you'll have to use a smaller vocabulary or get more data.  Luckily there's more data!  As we mentioned in the beggining of this project, this is a subset of <a href="https://www.kaggle.com/wcukierski/the-simpsons-by-the-data">another dataset</a>.  We didn't have you train on all the data, because that would take too long.  However, you are free to train your neural network on all the data.  After you complete the project, of course.</p>
-<h1 id="Submitting-This-Project">Submitting This Project<a class="anchor-link" href="#Submitting-This-Project">&#182;</a></h1><p>When submitting this project, make sure to run all the cells before saving the notebook. Save the notebook file as "dlnd_tv_script_generation.ipynb" and save it as a HTML file under "File" -&gt; "Download as". Include the "helper.py" and "problem_unittests.py" files in your submission.</p>
-
-</div>
-</div>
 </div>
     </div>
   </div>
